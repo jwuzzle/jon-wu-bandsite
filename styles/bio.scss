@@ -1,0 +1,253 @@
+@use "../styles/partials/globals";
+
+@use "../styles/partials/variables" as *;
+@use "../styles/partials/typography" as *;
+@use "../styles/partials/mixins" as *;
+
+
+.hero-banner {
+    position: relative;
+    display: flex;
+
+    &__image {
+        width: 100%;
+        clip-path: polygon(0 5%, 100% 5%, 100% 95%, 0 95%);
+        margin-top: -3.4%;
+        margin-bottom: -3.4%;
+    }
+
+    &__overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #323232;
+        opacity: 50%;
+    }
+
+    &__title {
+        position: absolute;
+        @include page-header-mobile;
+        color: $primary-color--white;
+        bottom: 40%;
+        padding-left: 1rem;
+    }
+
+    @media only screen and (min-width: $tablet-breakpoint) {
+
+        /* Tablet and above */
+        &__image {
+            clip-path: polygon(0 12%, 100% 12%, 100% 100%, 0 100%);
+            margin-top: -8%;
+            margin-bottom: 0;
+        }
+
+        &__title {
+            @include page-header;
+            padding-left: 2.25rem;
+            bottom: 43%;
+        }
+    }
+
+    @media only screen and (min-width: $desktop-breakpoint) {
+
+        /* Desktop and above */
+        &__image {
+            clip-path: polygon(0 6%, 100% 6%, 100% 80%, 0 80%);
+            margin-top: -4%;
+            margin-bottom: -13.3%;
+        }
+
+        &__title {
+            padding-left: 9.375rem;
+            bottom: 45%;
+        }
+    }
+}
+
+.about {
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+        color: $primary-color--black;
+        @include section-header-mobile;
+        padding: 1.5rem 1rem 1rem 1rem;
+    }
+
+    &__image {
+        padding: 0 1rem;
+    }
+
+    &__quote,
+    &__quote--signature {
+        color: $primary-color--black;
+        padding: 1rem 1rem 0 1rem;
+        @include subheader-mobile;
+    }
+
+    &__quote--signature {
+        padding-top: 0;
+    }
+
+    &__subtitle {
+        @include subheader-mobile;
+        padding: 1.5rem 1rem 1rem 1rem;
+    }
+
+    &__copy {
+        @include body-copy-mobile;
+        padding: 0 1rem 1rem 1rem;
+    }
+
+    @media only screen and (min-width: $tablet-breakpoint) {
+        /* Tablet and above */
+
+        &__title {
+            @include section-header;
+            padding: 3rem 2.25rem 2.25rem 2.25rem;
+        }
+
+        &__image {
+            padding: 0 5.9375rem;
+            clip-path: polygon(0 10%, 100% 10%, 100% 92%, 0 92%);
+            margin-top: -2.5rem;
+            margin-bottom: -1.875rem;
+        }
+
+        &__quote {
+            @include subheader;
+            padding: 2.25rem 5.9375rem 0 5.9375rem;
+        }
+
+        &__quote--signature {
+            @include body-copy;
+            font-weight: 700;
+            padding: 0.625rem 5.9375rem 0 5.9375rem;
+        }
+
+        &__description {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &__subtitle {
+            @include subheader;
+            padding: 3rem 5.9375rem 0 5.9375rem;
+        }
+
+
+        &__description--columns {
+            display: flex;
+            padding: 2.25rem 5.9375rem;
+            gap: 1.5rem;
+        }
+
+        &__copy {
+            @include body-copy;
+            padding: 0;
+        }
+    }
+
+    @media only screen and (min-width: $desktop-breakpoint) {
+
+        /* Desktop and above */
+        &__title {
+            padding: 3rem 9.375rem 2.25rem 9.375rem;
+        }
+
+        &__image {
+            padding: 0 14.8125rem;
+            clip-path: polygon(0 10%, 100% 10%, 100% 91%, 0 91%);
+            margin-top: -3.3125rem;
+            margin-bottom: -3.0625rem;
+        }
+
+        &__quote {
+            padding: 2.25rem 14.8125rem 0 14.8125rem;
+        }
+
+        &__quote--signature {
+            padding: 0.625rem 14.8125rem 0 14.8125rem;
+        }
+
+        &__subtitle {
+            @include subheader;
+            padding: 3rem 14.8125rem 0 14.8125rem;
+        }
+
+        &__description--columns {
+            padding: 2.25rem 14.8125rem;
+        }
+    }
+}
+
+.gallery {
+    background-color: #FAFAFA;
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+        @include section-header-mobile;
+        padding: 1.5rem 1rem 1rem 1rem;
+    }
+
+    &__columns {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__image {
+        padding: 0 1rem 1rem 1rem;
+        margin-top: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    @media only screen and (min-width: $tablet-breakpoint) {
+
+        /* Tablet and above */
+        &__title {
+            @include section-header;
+            padding: 3rem 2.25rem 2.25rem 2.25rem;
+        }
+
+        &__image--columns {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            padding: 0 2.25rem 2.25rem 2.25rem;
+        }
+
+        &__columns {
+            flex-direction: row;
+            gap: 1.5rem;
+        }
+
+        &__image {
+            padding: 0;
+            height: 15vw;
+            width: 50vw;
+        }
+    }
+
+    @media only screen and (min-width: $desktop-breakpoint) {
+
+        /* Desktop and above */
+        &__title {
+            padding: 3rem 0 2.25rem 9.375rem;
+        }
+
+        &__image--columns {
+            padding: 0 9.375rem 2.25rem 9.375rem;
+        }
+
+        &__columns {
+            justify-content: center;
+        }
+
+        &__image {
+            height: 14vw;
+            width: 24.2vw;
+        }
+    }
+}
