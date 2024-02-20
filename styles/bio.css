@@ -457,4 +457,19 @@ address {
     height: 14vw;
     width: 24.2vw;
   }
+}
+
+@media only screen and (min-width: 1280px) {
+  .image-tablet {
+    display: none;
+  }
+}
+
+.image-desktop {
+  display: none;
+}
+@media only screen and (min-width: 1280px) {
+  .image-desktop {
+    display: flex;
+  }
 }/*# sourceMappingURL=bio.css.map */

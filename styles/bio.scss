@@ -251,3 +251,19 @@
         }
     }
 }
+
+.image-tablet {
+
+    @media only screen and (min-width: $desktop-breakpoint) {
+        display: none;
+    }
+}
+
+.image-desktop {
+    display: none;
+
+    @media only screen and (min-width: $desktop-breakpoint) {
+        display: flex;
+    }
+
+}
