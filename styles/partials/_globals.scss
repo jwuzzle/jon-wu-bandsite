@@ -5,7 +5,12 @@
     padding: 0rem;
     margin: 0rem;
     box-sizing: border-box;
-    font-family: 'Avenir';
+    font-family: 'Avenir', 'sans‑serif'; 
+}
+
+a:active, a:link {
+    text-decoration: none;
+    text-decoration-line: $primary-color--black
 }
 
 address {
@@ -58,23 +63,20 @@ address {
         }
 
         &__menu {
-            padding-left: 1.5rem;
+            margin-left: 4rem;
+            align-items: baseline;
+            width: fit-content;
+            gap: 50%;
         }
 
         &__link {
             @include body-copy;
             padding: 1.75rem 0;
-        }
-
-        &__link--unselected {
-            width: 8vw;
-            margin-left: 2.1875rem;
+            width: fit-content;
         }
 
         &__link--selected {
-            font-weight: 700;
-            width: 4.375rem;
-            margin-left: 2.5rem;
+            font-weight: 700;  
         }
     }
 
@@ -86,13 +88,10 @@ address {
         }
 
         &__menu {
-            padding-left: 0.625rem;
+            margin-left: 3rem;
+            align-items: baseline;
+            gap: 35%;
         }
-
-        &__link--unselected {
-            margin-left: 0;
-        }
-
     }
 }
 

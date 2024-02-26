@@ -4,6 +4,10 @@
 @use "../styles/partials/typography" as *;
 @use "../styles/partials/mixins" as *;
 
+* {
+    padding: 0;
+    margin: 0;
+}
 
 .hero-banner {
     position: relative;
@@ -266,4 +270,247 @@
         display: flex;
     }
 
+}
+
+.testimonials {
+    display: flex;
+    flex-direction: column;
+}
+
+.comments {
+    display: flex;
+    flex-direction: column;
+    @include body-copy-mobile;
+
+    &__title {
+        @include section-header-mobile;
+        padding: 1.5rem 1rem 1rem 1rem;
+    }
+
+    &__section {
+        display: flex;
+        margin: 0 1rem; 
+    }
+
+    &__new {
+        width: 100%;
+    }
+
+    &__field {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__field-name {
+        text-transform: uppercase;
+        color: $primary-color--silver;
+        @include labels-buttons-mobile;
+        margin-bottom: 0.25rem;
+    }
+
+    &__field-area {
+        height:  2.25rem;
+        width: 100%;
+        border-radius: 0.25rem;
+        border: 1px solid $secondary-color--mercury;
+        background-color: $secondary-color--alabaster;
+        margin-bottom: 1rem;
+    }
+    
+    &__field-area--comment {
+        height: 6.25rem;
+        }
+
+    &__button {
+        @include labels-buttons-mobile;
+        text-transform: uppercase;
+        font-size: 0.875rem;
+        height: 2.5rem;
+        width: 100%;
+        background-color: $primary-color--black;
+        color: $primary-color--white;
+        border-radius: 0.25rem;
+        border: none;
+        margin-bottom: 1rem;
+    }
+
+    &__avatar-container {
+        min-width: 2.25rem;
+        height: 2.25rem; 
+        border-radius: 50%;
+        margin: 1.125rem 1rem 0 0;
+        overflow: hidden;
+        position: relative;
+    }
+
+    &__avatar {
+        width: 3.0625rem;
+        height: 2.5rem;
+        background-size: cover;
+        background-position: center;
+        position: absolute;
+    }
+
+    @media only screen and (min-width: $tablet-breakpoint) {
+        @include body-copy;
+
+        &__title {
+            @include section-header;
+            padding: 3rem 2.25rem 2.25rem 2.25rem;
+        }
+
+        &__section {
+            margin: 0 5.9375rem;
+        }
+
+        &__field-area {
+            margin-bottom: 2.25rem;
+            height: 3rem;
+        }
+
+        &__field-area--comment {
+            height: 6.25rem;
+            }
+
+        &__avatar-container {
+            min-width: 3rem;
+            height: 3rem;
+            margin: 1.125rem 1rem 0 0;
+        }
+    
+        &__avatar {
+            width: 3.4375rem;
+            height: 3.0625rem;
+        }
+
+        &__button {
+            width: 9.375rem;
+            margin-bottom: 2.25rem
+        }
+
+        &__submit {
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+
+    @media only screen and (min-width: $desktop-breakpoint) {
+        &__title {
+            padding: 3rem 9.375rem 2.25rem 9.375rem;
+        }
+
+        &__section {
+            margin: 0 25.6875rem;
+        }
+
+        &__avatar-container {
+            margin: 1.5rem 1rem 0 0;
+        }
+
+    }
+}
+
+.reviews {
+    display: flex;
+    flex-direction: column;
+    border-top: 0.03125rem solid $secondary-color--mercury;
+    border-bottom: 0.03125rem solid $secondary-color--mercury;
+    margin: 0 1rem 1rem 1rem;
+    @include body-copy-mobile;
+
+    &__avatar-container {
+        min-width: 2.25rem;
+        height: 2.25rem;
+        border-radius: 50%;
+        margin: 1rem 1rem 0 0;
+        background-color: $secondary-color--mercury;
+    }
+
+    &__submitted {
+        display: flex;
+        border-top: 0.03125rem solid #E1E1E1;
+        border-bottom: 0.03125rem solid #E1E1E1;
+    }
+
+    &__data {
+        display: flex;
+        flex-direction: column;
+        margin: 1rem 0;
+    }
+
+    &__id {
+        display: flex;
+        padding-bottom: 1rem;
+        justify-content: space-between;
+    }
+
+    &__name {
+        font-weight: 600;
+        color: $primary-color--black;
+    }
+
+    &__date {
+        color: $primary-color--silver;
+    }
+
+    @media only screen and (min-width: $tablet-breakpoint) {
+        margin: 0 5.9375rem 2.25rem;
+        @include body-copy;
+
+        &__submitted {
+            padding: 2.25rem 0;
+        }
+
+        &__avatar-container {
+            min-width: 3rem;
+            height: 3rem;
+            margin: 0 1rem 0 0;
+        }
+
+        &__data {
+            margin: 0;
+        }
+
+        &__id {
+            padding-bottom: 0.5rem;
+            justify-content: space-between;
+        }
+    }
+
+    @media only screen and (min-width: $desktop-breakpoint) {
+        margin: 0 25.6875rem 36px;
+
+        &__id {
+            display: flex;
+            padding-bottom: 0.5rem;
+            justify-content: space-between;
+        }
+
+    }
+
+}
+
+input {
+    padding-left: 0.75rem;
+
+    @media only screen and (min-width: $tablet-breakpoint) {
+        padding-left: 1rem;
+    }
+} 
+
+textarea {
+    padding: 0.75rem; 
+
+    @media only screen and (min-width: $tablet-breakpoint) {
+        padding-left: 1rem;
+    }
+}
+
+input::placeholder, textarea::placeholder {
+    @include body-copy-mobile;
+    color: $primary-color--black;
+
+    @media only screen and (min-width: $tablet-breakpoint) {
+        @include body-copy;
+    }
 }

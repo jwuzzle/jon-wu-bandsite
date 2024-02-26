@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BandSite</title>
     <link rel="stylesheet" href="./styles/bio.css">
+    <script defer src="./scripts/index-page.js"></script>
 </head>
 
 <body>
@@ -14,8 +15,12 @@
             <img class="nav-bar__logo" alt="bandsite logo" src="assets/logos/Logo-bandsite.svg" />
         </a>
         <ul class="nav-bar__menu">
-            <li class="nav-bar__link nav-bar__link--selected">Biography</li>
-            <li class="nav-bar__link nav-bar__link--unselected">Shows</li>
+            <a href="/index.html">
+                <li class="nav-bar__link nav-bar__link--selected">Biography</li>
+            </a>
+            <a href="/pages/shows.html">
+                <li class="nav-bar__link nav-bar__link--unselected">Shows</li>
+            </a>
         </ul>
     </nav>
     <main>
@@ -28,7 +33,7 @@
             </div>
         </section>
         <section class="about">
-            <h1 class="about__title">About the Musicians</h1>
+            <h2 class="about__title">About the Musicians</h2>
             <img class="about__image" alt="band on stage" src="./assets/images/band.jpg" />
             <p class="about__quote">"We push each other to be the best. It's not uncommon for one of us to say 'this
                 needs to be better,
@@ -70,7 +75,7 @@
             </div>
         </section>
         <section class="gallery">
-            <h1 class="gallery__title">Photo Gallery</h1>
+            <h2 class="gallery__title">Photo Gallery</h2>
             <div class="gallery__image--columns">
                 <div class="gallery__columns">
                     <img class="gallery__image" alt="smoke and laser lights with people"
@@ -101,12 +106,39 @@
                 </div>
             </div>
         </section>
+        <section class="testimonials">
+            <div class="comments">
+                <h2 class="comments__title">Join the Conversation</h2>
+                <div class="comments__section">
+                    <div class="comments__avatar-container">
+                        <img class="comments__avatar" src="./assets/images/Mohan-muruge.jpg" /> 
+                    </div>
+                    <form id="commentsForm" class="comments__new">
+                        <div class="comments__field">
+                            <label for="fullName" class="comments__field-name">Name</label>
+                            <input type="text" name="fullName" id="fullName" placeholder="Enter your name" class="comments__field-area">
+                        </div>
+                        <div class="comments__field">
+                            <label for="comment" class="comments__field-name">Comment</label>
+                            <textarea type="text" name="comment" id="comment" placeholder="Add a new comment" class="comments__field-area comments__field-area--comment"></textarea>
+                        </div>
+                        <div class="comments__submit">
+                            <button type="submit" class="comments__button">Comment</button>
+                        </div>
+                    </form>
+            </div>
+            <div class="reviews" id="reviews"></div>
+        </section>    
+        
+    </section>
+
+
     </main>
     <footer class="footer">
         <div class="footer__container">
             <div class="footer__main">
                 <div class="footer__top">
-                    <h1 class="footer__title">Get in Touch</h1>
+                    <h2 class="footer__title">Get in Touch</h2>
                     <div class="footer__social-icons">
                         <img class="footer__social-icons--size" alt="instagram logo"
                             src="/assets/icons/Icon-instagram.svg" />
