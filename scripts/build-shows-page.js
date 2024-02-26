@@ -129,12 +129,9 @@ function displayShows(concerts) {
         showDetailsEl.appendChild(ticketButtonEl);
 
         showDetailsEl.addEventListener("click", () => {
-            console.log("Clicked");
-            showDetailsEl.classList.replace('shows__details', 'shows__details--active');
+            showDetailsEl.classList.toggle('shows__details--active');
+        });
     });
-
-});
-
 };
 
 displayShows(showDates);

@@ -107,13 +107,11 @@
         &__title {
             padding: 2.25rem 0 2.25rem 9.375rem;
             bottom: 45%;
-            //@include page-header;
         }
 
         &__subtitle {
-            //@include subheader;
             padding-left: 9.375rem;
-            //line-height: 0;
+
         }
 
         &__music {
@@ -205,7 +203,7 @@
             display: flex;
             flex-direction: row;
             align-items: baseline;
-            padding: 2.5rem 1.125rem;
+            padding: 1.5rem 1.125rem;
             background-color: $secondary-color--mercury;
         }
 
@@ -269,7 +267,7 @@
     }
 }
 
-#showTable {
-    display: flex;
-    flex-direction: column;
-}
+//#showTable {
+ //   display: flex;
+   // flex-direction: column;
+//}

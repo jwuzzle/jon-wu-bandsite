@@ -396,7 +396,7 @@ address {
     display: flex;
     flex-direction: row;
     align-items: baseline;
-    padding: 2.5rem 1.125rem;
+    padding: 1.5rem 1.125rem;
     background-color: #E1E1E1;
   }
   .shows__details:hover {
@@ -455,9 +455,4 @@ address {
     width: 100%;
     margin: 0;
   }
-}
-
-#showTable {
-  display: flex;
-  flex-direction: column;
 }/*# sourceMappingURL=shows.css.map */
