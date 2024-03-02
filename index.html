@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BandSite</title>
     <link rel="stylesheet" href="./styles/bio.css">
-    <script defer src="./scripts/index-page.js"></script>
 </head>
 
 <body>
@@ -115,8 +114,8 @@
                     </div>
                     <form id="commentsForm" class="comments__new">
                         <div class="comments__field">
-                            <label for="fullName" class="comments__field-name">Name</label>
-                            <input type="text" name="fullName" id="fullName" placeholder="Enter your name" class="comments__field-area">
+                            <label for="name" class="comments__field-name">Name</label>
+                            <input type="text" name="name" id="name" placeholder="Enter your name" class="comments__field-area">
                         </div>
                         <div class="comments__field">
                             <label for="comment" class="comments__field-name">Comment</label>
@@ -179,5 +178,7 @@
         <p class="footer__bottom">Copyright The Bees Knees © 2023 All Rights Reserved</p>
     </footer>
 </body>
-
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./scripts/index-page.js" type="module"></script> 
+    <script src="./scripts/band-site-api.js" type="module"></script>
 </html>

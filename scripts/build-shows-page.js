@@ -1,41 +1,6 @@
-//array with show dates
-const showDates = [
-    {
-        Date: 'Mon Sept 09 2024',
-        Venue: 'Ronald Lane',
-        Location: 'San Francisco, CA'
-    },
-    {
-        Date: 'Tue Sept 17 2024',
-        Venue: 'Pier 3 East',
-        Location: 'San Francisco, CA'
-    },
-    {
-        Date: 'Sat Oct 12 2024',
-        Venue: 'View Lounge',
-        Location: 'San Francisco, CA'
-    },
-    {
-        Date: 'Sat Nov 16 2024',
-        Venue: 'Hyatt Agency',
-        Location: 'San Francisco, CA'
-    },
-    {
-        Date: 'Fri Nov 29 2024',
-        Venue: 'Moscow Center',
-        Location: 'San Francisco, CA'
-    },
-    {
-        Date: 'Wed Dec 18 2024',
-        Venue: 'Press Club',
-        Location: 'San Francisco, CA'
-    },
-]
+import { BandSiteApi } from "./band-site-api.js";
 
-//creating Shows section header titles
-
-//creating a div to house header titles and show data for desktop styling
-
+//creating labels for mobile view & turned off for tablet/desktop
 const showTableEl = document.createElement("div");
 showTableEl.classList.add("shows__table");
 document.getElementById("showSection").prepend(showTableEl);
@@ -63,19 +28,16 @@ const showButtonHeadEl = document.createElement("p");
 showButtonHeadEl.classList.add("shows__headers-copy");
 showHeadersEl.appendChild(showButtonHeadEl);
 
-//creating Shows section header
-
+//creating Shows section headers
 const showSectionHeadEl = document.createElement("h2");
 showSectionHeadEl.innerText = "Shows";
 showSectionHeadEl.classList.add("shows__title");
 document.getElementById("showSection").prepend(showSectionHeadEl);
 
-//creating elements to display show date, venue and location data 
-const showList = document.getElementById("showSchedule");
-
-function displayShows(concerts) {
-    concerts.forEach((concert) => {
-
+//creating elements to display show date, venue and location data
+const renderShows = async (shows) => {    
+    const showList = document.getElementById("showSchedule");
+    shows.forEach((show) => { //function displayShows(concerts) {
         const showDetailsEl = document.createElement("div");
         showDetailsEl.classList.add("shows__details");
         showDetailsEl.id = "showDetails";
@@ -86,26 +48,27 @@ function displayShows(concerts) {
         showDetailsEl.appendChild(showDateEl);
 
         const showDateHeaderEl = document.createElement("p");
-        showDateHeaderEl.innerText = 'Date';
+        showDateHeaderEl.innerText = "Date";
         showDateHeaderEl.classList.add("shows__header");
         showDateEl.appendChild(showDateHeaderEl);
 
-        const showScheduledDateEl = document.createElement("p");
-        showScheduledDateEl.innerText = concert.Date;
-        showScheduledDateEl.classList.add("shows__scheduled-date");
-        showDateEl.appendChild(showScheduledDateEl);
+        const timeStampEl = document.createElement("p");
+        const formattedDate = new Date(show.date).toDateString();
+        timeStampEl.textContent = formattedDate;
+        timeStampEl.classList.add("shows__scheduled-date");
+        showDateEl.appendChild(timeStampEl);
 
         const showVenueEl = document.createElement("div");
         showVenueEl.classList.add("shows__venue");
         showDetailsEl.appendChild(showVenueEl);
 
         const showVenueHeaderEl = document.createElement("p");
-        showVenueHeaderEl.innerText = 'Venue';
+        showVenueHeaderEl.innerText = "Venue";
         showVenueHeaderEl.classList.add("shows__header");
         showVenueEl.appendChild(showVenueHeaderEl);
 
         const showVenueNameEl = document.createElement("p");
-        showVenueNameEl.innerText = concert.Venue;
+        showVenueNameEl.innerText = show.place;
         showVenueNameEl.classList.add("shows__venue-name");
         showVenueEl.appendChild(showVenueNameEl);
 
@@ -114,25 +77,30 @@ function displayShows(concerts) {
         showDetailsEl.appendChild(showLocationEl);
 
         const showLocationHeaderEl = document.createElement("p");
-        showLocationHeaderEl.innerText = 'Location';
+        showLocationHeaderEl.innerText = "Location";
         showLocationHeaderEl.classList.add("shows__header");
         showLocationEl.appendChild(showLocationHeaderEl);
 
         const showLocationNameEl = document.createElement("p");
-        showLocationNameEl.innerText = concert.Location;
+        showLocationNameEl.innerText = show.location;
         showLocationNameEl.classList.add("shows__location-name");
         showLocationEl.appendChild(showLocationNameEl);
 
         const ticketButtonEl = document.createElement("button");
-        ticketButtonEl.innerText = 'Buy Tickets';
+        ticketButtonEl.innerText = "Buy Tickets";
         ticketButtonEl.classList.add("shows__buy-tickets");
         showDetailsEl.appendChild(ticketButtonEl);
 
         showDetailsEl.addEventListener("click", () => {
-            showDetailsEl.classList.toggle('shows__details--active');
+            showDetailsEl.classList.toggle("shows__details--active");
         });
     });
-};
+}
 
-displayShows(showDates);
+const getShowsApi = async function getShowsFromApi() {
+    const bandSite2 = new BandSiteApi("4ff1acf6-d299-4817-98e4-9289a44d89b5");
+    const data = await bandSite2.getShows();
+    renderShows(data);
+}
 
+getShowsApi()
