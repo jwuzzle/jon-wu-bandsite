@@ -4,8 +4,6 @@ export class BandSiteApi {
     this.baseUrl = "https://unit-2-project-api-25c1595833b2.herokuapp.com";
   }
 
-  //get for Comments and Shows
-
   async getComments() {
     try {
       const response = await axios.get(
@@ -31,7 +29,6 @@ export class BandSiteApi {
       const response = await axios.get(`${this.baseUrl}/showdates?api_key=${this.apiKey}`);
       const shows = response.data;
       return shows
-      console.log("show date: ", shows);
     } catch (error) {
       console.log(error);
     }

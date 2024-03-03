@@ -84,4 +84,3 @@ testimonialForm.addEventListener("submit", async (e) => {
     const data = await bandSite.getComments();
     renderComments(data.reverse());
   });
-
